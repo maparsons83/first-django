@@ -9,3 +9,13 @@ class Author(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class Recipe(models.Model):
+    title = models.CharField(max_length=100)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    description = models.TextField(max_length=1000)
+    time = models.CharField(max_length=50)
+    instructions = models.TextField(max_length=2000)
+
+    def __str__(self):
+        return self.title
