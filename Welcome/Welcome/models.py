@@ -8,7 +8,7 @@ class Author(models.Model):
     # name = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.user.username
+        return self.user
 
 class Recipe(models.Model):
     title = models.CharField(max_length=100)
