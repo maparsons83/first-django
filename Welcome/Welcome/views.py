@@ -10,3 +10,19 @@ def homepage(request):
     results = Recipe.objects.all()
 
     return render(request, html, {'data': results})
+
+
+def author(request, author_id):
+    html = 'author.html'
+
+    author_obj = Author.objects.filter(id=author_id)[0]
+
+    recipes_obj = Recipe.objects.filter(author=author_obj)
+
+    data_obj = {
+        'data': {
+            'author': author_obj,
+            'recipes': recipes_obj
+        }
+    }
+    return render(request, html, data_obj)

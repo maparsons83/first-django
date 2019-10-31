@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
+from django.urls import path
 from django.contrib import admin
 from Welcome import views
 from Welcome import models
@@ -24,4 +25,5 @@ admin.site.register(models.Recipe)
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('', views.homepage, name='homepage'),
+    path('<int:author_id>/', views.author),
 ]
