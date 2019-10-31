@@ -5,7 +5,7 @@ from Welcome.models import Recipe
 from Welcome.models import Author
 
 def homepage(request):
-    html = 'recipes.html'
+    html = 'homepage.html'
 
     results = Recipe.objects.all()
 
