@@ -26,3 +26,20 @@ def author(request, author_id):
         }
     }
     return render(request, html, data_obj)
+
+
+def recipes(request, author_id, recipe_name):
+    html = 'recipe.html'
+
+
+    author_obj = Author.objects.all().filter(id=author_id)[0]
+
+    recipes_obj = Recipe.objects.all().filter(author__id=author_obj.id).filter(title=recipe_name)
+
+    data_obj = {
+        'data': {
+            'author': author_obj,
+            'recipes': recipes_obj
+        }
+    }
+    return render(request, html, data_obj)
