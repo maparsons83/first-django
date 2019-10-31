@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 
 from Welcome.models import Recipe
 from Welcome.models import Author
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 
 def homepage(request):
     html = 'homepage.html'
