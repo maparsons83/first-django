@@ -29,7 +29,7 @@ def author(request, author_id):
 
 
 def recipes(request, author_id, recipe_name):
-    html = 'recipe.html'
+    html = 'homepage.html'
 
 
     author_obj = Author.objects.all().filter(id=author_id)[0]
